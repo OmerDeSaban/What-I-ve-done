@@ -1,0 +1,8 @@
+This isn't a readme file, but rather a short explanation file:
+I've taken this course during the 1st semester of the 2024-2025 academic year.
+The assignments in this course were done individually.
+There were 5 assignments overall, and during the 2nd semester of the same year I've decided to revisit them,
+and solve them in C++ rather than in C.
+This means that some assignments aren't fully compatible, such as assignmet 3, which focuses on Linux kernel.
+Moreover, when I took the course I didn't do assignmet number 2, which is why the C solution for it is missing,
+but I did leave a folder named C solution there, containing the original shell.c file.

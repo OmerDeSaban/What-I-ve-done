@@ -1,0 +1,22 @@
+tankA action: Rotate4Right
+tankB action: Rotate4Right
+tankA action: Rotate4Right
+tankB action: Rotate4Right
+tankA action: Shoot
+tankB action: Shoot
+tankA action: Rotate8Left
+tankB action: Rotate4Right
+tankA action: Forward
+tankB action: Rotate4Left
+tankA action: Rotate8Right
+tankB action: Forward
+tankA action: Rotate8Right
+tankB action: Forward
+tankA action: Rotate8Left
+tankB action: Forward
+tankA action: Rotate8Right
+tankB action: Rotate8Right
+tankA action: Shoot
+tankB action: Shoot
+Game Over! its a tie!
+tankA cause of death: hit by a shell,  tankB cause of death: hit by a shell, 

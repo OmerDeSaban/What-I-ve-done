@@ -1,0 +1,5 @@
+This isn't a readme file, but rather a short explanation file:
+I've taken this course during the 2nd semester of the 2023-2024 academic year.
+The assignments in this course were done in pairs, and I've done this one with a friend named Alika Grayev.
+There were 4 assignments in this course overall, with the last one being the project itself, and the first
+one (denoted as ex0) being an introductory assignment.

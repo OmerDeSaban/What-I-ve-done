@@ -1,0 +1,34 @@
+tankA action: Rotate4Right
+tankB action: Rotate4Right
+tankA action: Rotate4Right
+tankB action: Rotate4Right
+tankA action: Shoot
+tankB action: Shoot
+tankA action: Rotate8Left
+tankB action: Rotate8Left
+tankA action: Forward
+tankB action: Rotate8Right
+tankA action: Rotate8Right
+tankB action: Forward
+tankA action: Rotate8Right
+tankB action: Forward
+tankA action: Forward
+tankB action: Forward
+tankA action: Rotate8Left
+tankB action: Shoot
+tankA action: Shoot
+tankB action: Rotate8Left
+tankA action: Forward
+tankB action: Rotate8Right
+tankA action: Forward
+tankB action: Rotate8Left
+tankA action: Rotate8Left
+tankB action: Rotate8Right
+tankA action: Forward
+tankB action: Shoot
+tankA action: Rotate4Right
+tankB action: Rotate8Right
+tankA action: Shoot
+tankB action: Rotate8Left
+Game Over! tank A won!
+tankB cause of death: hit by a shell, 

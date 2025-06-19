@@ -1,0 +1,25 @@
+GetBattleInfo
+GetBattleInfo
+GetBattleInfo
+GetBattleInfo
+Shoot
+Shoot
+RotateRight90
+MoveForward
+GetBattleInfo
+GetBattleInfo
+GetBattleInfo
+GetBattleInfo
+RotateRight90
+RotateLeft45
+RotateRight45
+RotateRight45
+GetBattleInfo
+GetBattleInfo
+GetBattleInfo
+GetBattleInfo
+RotateRight45
+RotateRight45
+Shoot
+MoveForward
+Player 1 won with 3 tanks still alive

@@ -1,0 +1,3 @@
+This folder contains all the assignment solutions I managed to restore from my university courses.
+There are courses I've taken prior to the 2023-2024 academic year, which I couldn't access anymore,
+hence they are missing here.

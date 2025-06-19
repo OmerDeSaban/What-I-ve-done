@@ -1,0 +1,8 @@
+This isn't a readme file, but rather a short explanation file:
+I've taken this course during the 1st semester of the 2023-2024 academic year.
+The assignments in this course were done individually.
+There were 7 assignments overall, of which I've only done the first 5 (hence why the last 2 aren't shown here).
+In addition, I couldn't manage to restore the 5th assignment's solution I provided, hence why that assignment
+is also missing from here.
+It is important for me to note that the reason why I don't have all the assignments here is my mother's untimely
+death due to cancer during that semester.

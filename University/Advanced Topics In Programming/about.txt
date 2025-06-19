@@ -1,0 +1,6 @@
+This isn't a readme file, but rather a short explanation file:
+I've taken this course during the 2nd semester of the 2024-2025 academic year.
+The assignments in this course were done in pairs, and I've done this one with a friend named Ariel Haim.
+There were 3 assignments overall. Note that, at the moment, the course is still undergoing, which is why
+I don't have the 3rd assignment here yet. It will be added as we submit it and receive its grade (in case
+we'd need to update it for some appeals).

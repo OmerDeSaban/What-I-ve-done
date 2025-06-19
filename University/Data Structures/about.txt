@@ -1,0 +1,6 @@
+This isn't a readme file, but rather a short explanation file:
+I've taken this course during the 1st semester of the 2023-2024 academic year.
+The assignments in this course were to be done in pairs, but due to my mother's untimely death due to cancer
+during that very semester, I was allowed to do the assignments individually.
+There were 5 theoretical assignments in the course, which included no coding, thus aren't shown here.
+There were 2 practical assignments in the course, which are shown here.
