@@ -60,6 +60,32 @@ The environment is designed to provide common backend services for future projec
 
 ---
 
+## Game Mods
+
+Personal game modifications focused on extending or improving game systems through code and custom tooling.
+
+### Mount & Blade II: Bannerlord — Relation Commands
+
+A lightweight C# mod that adds developer-console commands for changing the player's relation with large groups of characters across a campaign.
+
+The mod supports:
+
+- Setting relation with every living hero in the campaign
+- Setting relation with all notables
+- Setting relation with all wanderers
+- Setting relation with all active clan leaders
+- Handling Bannerlord's direct and effective relationship systems
+- Supporting living storyline characters that Bannerlord stores as disabled heroes
+- Automatic deployment into the Bannerlord module directory during development
+
+The implementation accounts for Bannerlord's shared effective relationships between nobles and clan representatives, ensuring that the final relation displayed in-game matches the requested value.
+
+**Technologies:** C#, .NET Framework 4.7.2, Mount & Blade II: Bannerlord modding API
+
+[View Relation Commands](./Game-Mods/Mount-and-Blade-II-Bannerlord/RelationCommands)
+
+---
+
 ## University Projects
 
 Selected coursework demonstrating algorithms, data structures, systems programming, object-oriented design, concurrency, networking, and integration between multiple programming languages.
@@ -207,4 +233,4 @@ This repository is intended to provide a central overview of work that I can sho
 
 Some projects are stored directly within this repository, while larger or independently maintained projects have their own repositories and are linked from here.
 
-The collection will continue to grow as I complete additional university, personal, systems, backend, and software-development projects.
+The collection will continue to grow as I complete additional university, personal, game-modding, systems, backend, and software-development projects.

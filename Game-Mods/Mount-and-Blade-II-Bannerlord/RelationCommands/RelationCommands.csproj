@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+
+    <AssemblyName>RelationCommands</AssemblyName>
+    <RootNamespace>RelationCommands</RootNamespace>
+
+    <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
+    <ModuleName>RelationCommands</ModuleName>
+
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="TaleWorlds.Library">
+      <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Library.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="TaleWorlds.Core">
+      <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="TaleWorlds.ObjectSystem">
+      <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.ObjectSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="TaleWorlds.Localization">
+      <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Localization.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="TaleWorlds.CampaignSystem">
+      <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.CampaignSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="TaleWorlds.MountAndBlade">
+      <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="DeployToBannerlord" AfterTargets="Build">
+
+    <MakeDir
+      Directories="$(GameFolder)\Modules\$(ModuleName)\bin\Win64_Shipping_Client" />
+
+    <Copy
+      SourceFiles="$(TargetPath)"
+      DestinationFolder="$(GameFolder)\Modules\$(ModuleName)\bin\Win64_Shipping_Client" />
+
+    <Copy
+      SourceFiles="$(ProjectDir)Module\SubModule.xml"
+      DestinationFolder="$(GameFolder)\Modules\$(ModuleName)" />
+
+  </Target>
+
+</Project>
