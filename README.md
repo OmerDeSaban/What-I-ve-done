@@ -62,11 +62,100 @@ The environment is designed to provide common backend services for future projec
 
 ## University Projects
 
-Programming assignments and projects completed as part of my university studies are available in the [`University`](./University) directory.
+Selected coursework demonstrating algorithms, data structures, systems programming, object-oriented design, concurrency, networking, and integration between multiple programming languages.
 
-These projects cover a range of programming concepts, algorithms, data structures, software-development techniques, and coursework completed throughout my degree.
+### Software Project — Clustering Algorithms & Python/C Integration
 
-[Browse the University projects](./University)
+A multi-stage software project focused on clustering algorithms and integration between Python and native C code.
+
+The coursework includes:
+
+- K-Means implementations in both Python and C
+- A native C extension module callable from Python
+- K-Means++ initialization
+- Symmetric Non-negative Matrix Factorization (SymNMF)
+- Python/C interoperability using custom extension modules
+- Numerical and data-analysis code
+
+**Technologies:** Python, C, Python C extensions
+
+[View Software Project coursework](./University/Software%20Project)
+
+---
+
+### Operating Systems
+
+A collection of systems-programming assignments implemented primarily in both C and C++.
+
+The coursework includes:
+
+- Low-level operating-system programming exercises
+- Command-shell implementations
+- Message reader/sender and message-slot components
+- Thread-safe queue implementation
+- Parallel file-search functionality
+- Client/server networking applications
+- Multiple implementations in both C and C++
+
+**Technologies:** C, C++, Linux, multithreading, inter-process communication, networking
+
+[View Operating Systems coursework](./University/Operating%20Systems)
+
+---
+
+### Advanced Topics in Programming — Tank Simulation & Algorithms
+
+C++ projects centered around a tank-battle simulation and algorithmic decision-making framework.
+
+The projects include:
+
+- Board and game-state management
+- Tank and player abstractions
+- Multiple tank/player strategies
+- BFS-based navigation and pathfinding
+- Factory-based creation of players and tank algorithms
+- Separation between interfaces and implementations
+- Extensible C++ class architecture
+
+**Technologies:** C++, object-oriented programming, BFS, design patterns, algorithms
+
+[View Advanced Topics in Programming coursework](./University/Advanced%20Topics%20In%20Programming)
+
+---
+
+### Data Structures
+
+Implementations of fundamental advanced data structures in multiple languages.
+
+Projects include:
+
+- AVL Tree implementation in Python
+- Binomial Heap implementation in Java
+
+**Technologies:** Python, Java, trees, heaps, algorithmic data structures
+
+[View Data Structures coursework](./University/Data%20Structures)
+
+---
+
+### Additional Java Coursework
+
+Earlier Java assignments covering foundational programming and software-development concepts.
+
+Examples include:
+
+- Array utilities
+- String-processing utilities
+- Bigram language model implementation
+- General Java programming exercises
+
+**Technologies:** Java
+
+[View Software 1 coursework](./University/Software%201)
+
+---
+
+Additional assignments and source code are available throughout the [`University`](./University) directory.
 
 ---
 
