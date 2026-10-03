@@ -133,6 +133,31 @@ The mod supports:
 
 [View Character Commands](./Game-Mods/Mount-and-Blade-II-Bannerlord/CharacterCommands)
 
+
+---
+
+### Total War: ROME REMASTERED — OP Julii
+
+A campaign-focused data mod that turns the Julii into a deliberately overpowered faction while also applying several global campaign, economy, recruitment, diplomacy, and quality-of-life changes.
+
+The mod includes:
+
+- A heavily expanded Julii starting position with additional regions, characters, armies, settlement development, and infrastructure
+- Near-free Roman unit recruitment, upkeep, and equipment upgrades for the modified units
+- One-turn, one-denarius building construction across the modified building definitions
+- Greatly increased Roman recruitment availability
+- Powerful Julii-specific trait and ancillary triggers
+- Julii exclusions from many existing trait triggers
+- Campaign resource quantities raised to the maximum configured value used by the modified campaign file
+- Brigand and pirate spawn values reduced to zero
+- Strengthened diplomacy, reputation, and merchant-embargo effects
+- Revised building text for building variants exposed by the expanded availability
+- A Feral launcher-compatible mod-folder structure with `modinfo.json` and a launcher-generated manifest workflow
+
+**Technologies:** Total War: ROME REMASTERED data files, Feral mod launcher and manifest system, JSON, Git
+
+[View OP Julii](./Game-Mods/Total-War-ROME-REMASTERED/OP-Julii)
+
 ---
 
 ## University Projects

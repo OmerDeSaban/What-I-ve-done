@@ -1,0 +1,34 @@
+[
+	{
+		"filename": "data\/descr_cultures.txt",
+		"checksum": 1740742367
+	},
+	{
+		"filename": "data\/export_descr_ancillaries.txt",
+		"checksum": 3191714858
+	},
+	{
+		"filename": "data\/export_descr_buildings.txt",
+		"checksum": 4070729500
+	},
+	{
+		"filename": "data\/export_descr_character_traits.txt",
+		"checksum": 3555087774
+	},
+	{
+		"filename": "data\/export_descr_unit.txt",
+		"checksum": 4252994995
+	},
+	{
+		"filename": "data\/feral_descr_reputations_and_relations.txt",
+		"checksum": 3822023549
+	},
+	{
+		"filename": "data\/text\/export_buildings.txt",
+		"checksum": 1489699022
+	},
+	{
+		"filename": "data\/world\/maps\/campaign\/imperial_campaign\/descr_strat.txt",
+		"checksum": 1087731679
+	}
+]
