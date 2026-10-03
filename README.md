@@ -87,6 +87,31 @@ The implementation accounts for Bannerlord's shared effective relationships betw
 
 ---
 
+### Mount & Blade II: Bannerlord — Clan Commands
+
+A C# utility mod that adds developer-console commands for discovering, inspecting, listing, and safely destroying clans in a campaign.
+
+The mod supports:
+
+- Finding clans and kingdoms by partial display name or internal ID
+- Displaying exact `StringId` values for clans, kingdoms, and leaders
+- Inspecting detailed clan information by exact ID
+- Listing every active clan in a specified kingdom
+- Listing clans currently at war with the player
+- Destroying a single clan by exact ID
+- Destroying all eligible clans in another kingdom
+- Destroying eligible clans currently at war with the player
+- Hard safety protections for the player's clan and the player's kingdom
+- Automatic deployment into the Bannerlord module directory during development
+
+The destructive commands are intentionally ID-based, while the discovery and list commands expose the IDs needed to target campaign entities precisely.
+
+**Technologies:** C#, .NET Framework 4.7.2, Mount & Blade II: Bannerlord modding API
+
+[View Clan Commands](./Game-Mods/Mount-and-Blade-II-Bannerlord/ClanCommands)
+
+---
+
 ## University Projects
 
 Selected coursework demonstrating algorithms, data structures, systems programming, object-oriented design, concurrency, networking, and integration between multiple programming languages.

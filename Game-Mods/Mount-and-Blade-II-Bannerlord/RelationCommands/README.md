@@ -6,6 +6,11 @@ The mod was created to make campaign relationship management easier, particularl
 
 **Current version:** v1.1.0
 
+Game versions tested on:
+
+- **Bannerlord:** v1.4.5
+- **War Sails:** v1.2.5
+
 ## Features
 
 Relation Commands provides one-time relation commands and persistent relation locks for several campaign-wide character groups.
