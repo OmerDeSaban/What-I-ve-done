@@ -112,6 +112,29 @@ The destructive commands are intentionally ID-based, while the discovery and lis
 
 ---
 
+### Mount & Blade II: Bannerlord — Character Commands
+
+A C# utility mod that adds developer-console commands for setting, inspecting, and persistently locking the player's and player clan's personality traits.
+
+The mod supports:
+
+- Setting Calculating, Generosity, Honor, Mercy, and Valor
+- Automatic normalization of decimal and out-of-range inputs to Bannerlord's valid `-2` to `2` trait levels
+- Persistent player-specific trait locks
+- Persistent clan-wide trait locks for every living member of the player's clan
+- `lock_all` hierarchy with automatic splitting into individual trait locks
+- Per-trait values through `lock_all_by_values`
+- Player-specific locks overriding clan-wide locks for the player
+- Save/load persistence and hourly re-enforcement
+- Inspection commands for the player and every living player-clan hero
+- Automatic deployment into the Bannerlord module directory during development
+
+**Technologies:** C#, .NET Framework 4.7.2, Mount & Blade II: Bannerlord modding API
+
+[View Character Commands](./Game-Mods/Mount-and-Blade-II-Bannerlord/CharacterCommands)
+
+---
+
 ## University Projects
 
 Selected coursework demonstrating algorithms, data structures, systems programming, object-oriented design, concurrency, networking, and integration between multiple programming languages.
