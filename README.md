@@ -133,6 +133,30 @@ The mod supports:
 
 [View Character Commands](./Game-Mods/Mount-and-Blade-II-Bannerlord/CharacterCommands)
 
+---
+
+### Mount & Blade II: Bannerlord — Notable Support Commands
+
+A C# utility mod that controls notable-support cost and manages notable relationships while preserving the player's ability to recruit notables as supporters.
+
+The mod supports:
+
+- Finding and inspecting living notables by name or internal ID
+- Inspecting raw and effective relations between a notable and any living hero
+- Locking notable support cost to a fixed configurable value, defaulting to `10,000`
+- Keeping notable-to-notable relations at the campaign maximum
+- Keeping notable-to-player-clan relations at the campaign maximum
+- Applying a configurable ceiling to other non-player relations without raising values below the ceiling
+- Using a dynamic default ceiling of `95` when the campaign relation maximum is `100`
+- Persistent relation and support-cost settings with save/load support
+- Event-based relation enforcement with a staggered hourly fallback that completes a full sweep roughly every five in-game days
+- Automatic deployment into the Bannerlord module directory during development
+
+The implementation accounts for Bannerlord's effective-relation system and the v1.4.5 notable-support rules, including the maximum-relation hard block that can prevent a notable from switching support to the player's clan.
+
+**Technologies:** C#, .NET Framework 4.7.2, Mount & Blade II: Bannerlord modding API
+
+[View Notable Support Commands](./Game-Mods/Mount-and-Blade-II-Bannerlord/NotableSupportCommands)
 
 ---
 
