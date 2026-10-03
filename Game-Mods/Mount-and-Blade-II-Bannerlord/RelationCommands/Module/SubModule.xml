@@ -3,7 +3,7 @@
 <Module>
   <Name value="Relation Commands" />
   <Id value="RelationCommands" />
-  <Version value="v1.0.0" />
+  <Version value="v1.1.0" />
 
   <DefaultModule value="false" />
   <SingleplayerModule value="true" />

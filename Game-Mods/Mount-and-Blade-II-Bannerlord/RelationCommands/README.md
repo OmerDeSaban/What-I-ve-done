@@ -1,12 +1,14 @@
 # Relation Commands
 
-A lightweight C# mod for **Mount & Blade II: Bannerlord** that adds console commands for setting the player's relation with large groups of characters at once.
+A lightweight C# mod for **Mount & Blade II: Bannerlord** that adds console commands for setting and persistently locking the player's relation with large groups of characters across a campaign.
 
 The mod was created to make campaign relationship management easier, particularly in long-running or heavily modded campaigns where manually changing relations with hundreds or thousands of heroes is impractical.
 
+**Current version:** v1.1.0
+
 ## Features
 
-Relation Commands adds four console commands:
+Relation Commands provides one-time relation commands and persistent relation locks for several campaign-wide character groups.
 
 | Command | Description |
 | --- | --- |
@@ -14,6 +16,15 @@ Relation Commands adds four console commands:
 | `relation.set_notables <value>` | Sets relation with all living notables |
 | `relation.set_wanderers <value>` | Sets relation with all living wanderers |
 | `relation.set_clans <value>` | Sets relation with the leader of every active clan |
+| `relation.lock_everyone <value>` | Locks relation with every living hero in the campaign |
+| `relation.lock_notables <value>` | Locks relation with all living notables |
+| `relation.lock_wanderers <value>` | Locks relation with all living wanderers |
+| `relation.lock_clans <value>` | Locks relation with the leader of every active clan |
+| `relation.unlock_everyone` | Disables all active relation locks |
+| `relation.unlock_notables` | Disables active relation locks with all living notables |
+| `relation.unlock_wanderers` | Disables active relation locks with all living wanderers |
+| `relation.unlock_clans` | Disables active relation locks with the leader of every active clan |
+| `relation.lock_status` | Displays the current state and value of all relation locks |
 
 Relation values must be between:
 
@@ -71,6 +82,13 @@ The command has also been tested successfully with intermediate values such as:
 relation.set_everyone 50
 ```
 
+Persistent locks have also been tested for:
+
+- Lock hierarchy and category splitting
+- Redundant lock detection
+- Hourly re-enforcement after relations are changed
+- Save/load persistence of active locks and their values
+
 ## Project Structure
 
 ```text
@@ -79,6 +97,7 @@ RelationCommands/
 │   └── SubModule.xml
 ├── src/
 │   ├── RelationCommands.cs
+│   ├── RelationLockBehavior.cs
 │   └── SubModule.cs
 ├── RelationCommands.csproj
 └── README.md
@@ -208,6 +227,69 @@ relation.set_clans <value>
 ```
 
 Sets relation with the leader of every active clan other than the player's own clan.
+
+## Persistent Relation Locks
+
+Relation Commands can also keep relations locked to specific values throughout a campaign.
+
+```text
+relation.lock_everyone <value>
+relation.lock_notables <value>
+relation.lock_wanderers <value>
+relation.lock_clans <value>
+
+relation.unlock_everyone
+relation.unlock_notables
+relation.unlock_wanderers
+relation.unlock_clans
+
+relation.lock_status
+```
+
+Locks are persisted with the campaign save.
+
+The mod reacts to relation changes and also performs an hourly fallback check, ensuring that relations changed by normal gameplay or other systems are restored to their locked values.
+
+### Lock Hierarchy
+
+`relation.lock_everyone` sits above the individual category locks in the lock hierarchy.
+
+For example:
+
+```text
+relation.lock_everyone 50
+```
+
+locks everyone to 50.
+
+Running:
+
+```text
+relation.lock_wanderers 50
+```
+
+is dismissed because wanderers are already effectively locked to 50.
+
+Running:
+
+```text
+relation.lock_wanderers 100
+```
+
+splits the global lock into:
+
+```text
+Notables: 50
+Wanderers: 100
+Clans: 50
+Everyone: OFF
+```
+
+Similarly, unlocking one category while `lock_everyone` is active splits the global lock and leaves the other categories locked at the previous global value.
+
+Running `relation.lock_everyone` again replaces all category-specific locks with a new global lock.
+
+`relation.unlock_everyone` disables every relation lock.
 
 ## Notes
 

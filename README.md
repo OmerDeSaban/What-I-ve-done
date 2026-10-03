@@ -66,7 +66,7 @@ Personal game modifications focused on extending or improving game systems throu
 
 ### Mount & Blade II: Bannerlord — Relation Commands
 
-A lightweight C# mod that adds developer-console commands for changing the player's relation with large groups of characters across a campaign.
+A lightweight C# mod that adds developer-console commands for changing and persistently locking the player's relation with large groups of characters across a campaign.
 
 The mod supports:
 
@@ -77,6 +77,7 @@ The mod supports:
 - Handling Bannerlord's direct and effective relationship systems
 - Supporting living storyline characters that Bannerlord stores as disabled heroes
 - Automatic deployment into the Bannerlord module directory during development
+- Persistent relation locks with save/load support, lock hierarchy, and automatic re-enforcement
 
 The implementation accounts for Bannerlord's shared effective relationships between nobles and clan representatives, ensuring that the final relation displayed in-game matches the requested value.
 
