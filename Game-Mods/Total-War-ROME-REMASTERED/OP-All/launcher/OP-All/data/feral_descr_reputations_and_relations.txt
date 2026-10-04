@@ -1,0 +1,71 @@
+;;; Circumstances Increasing Reputation
+
+
+; Reputation increases by value when the circumstance occurs, 10 is 1%
+
+circumstance time
+value 0
+
+circumstance long_term_alliance
+value 0
+
+circumstance cancel_embargo
+value 0
+
+circumstance offer_compensation_accepted
+value 0
+
+circumstance ceasefire_accepted
+value 0
+
+circumstance offer_military_assist_accepted
+value 0
+
+circumstance ally_ally_of_ally
+value 0
+
+
+;;; Rebel Bribe Effect on Reputation
+
+; Thing being bribed is type, 10 is 1%
+; Original values in order were -40, -60, -70 and -110
+
+rebel_type character
+value -40
+
+rebel_type army
+value -60
+
+rebel_type fort
+value -70
+
+rebel_type settlement
+value -110
+
+
+;;; Non-Rebel Bribe Effect on Reputation
+
+; Thing being bribed is type, 10 is 1%
+
+type character
+value -40
+
+type army
+value -60
+
+type fort
+value -70
+
+type settlement
+value -110
+
+
+;;; Relationship Bonus from Merchant Trade
+
+; Income each merchant makes is divided by 20 and multiplied with the multiplier to affect relationship each turn
+; 10 is 1% for cap and penalty
+; Embargo penalty applies for each merchant in an embargo faction's borders and is limited to -cap
+
+income_multiplier 0
+cap 100
+embargo_penalty 100
