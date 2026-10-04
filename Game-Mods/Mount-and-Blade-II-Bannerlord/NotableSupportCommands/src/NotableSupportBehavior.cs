@@ -71,6 +71,11 @@ namespace NotableSupportCommands
                 .AddNonSerializedListener(
                     this,
                     OnHourlyTick);
+
+            CampaignEvents.OnClanDestroyedEvent
+                .AddNonSerializedListener(
+                    this,
+                    OnClanDestroyed);
         }
 
         public override void SyncData(
@@ -206,18 +211,34 @@ namespace NotableSupportCommands
                 $"Hard support-switch block value: " +
                 $"{maxRelation}\n" +
                 $"Minimum player relation to request support: 50\n" +
+                $"Stale eliminated-clan support cleanup: immediate + hourly fallback\n" +
                 $"Fallback: full staggered sweep every " +
                 $"{FallbackSweepHours} in-game hours\n" +
                 $"Support cost: {costStatus}";
         }
 
+        private void OnClanDestroyed(
+            Clan destroyedClan)
+        {
+            NotableSupportConsoleCommands
+                .CleanupSupportAssignmentsForClan(
+                    destroyedClan);
+        }
+
         private void OnHourlyTick()
         {
-            if (!_relationsLocked ||
-                _isApplyingRelations ||
-                Campaign.Current == null ||
+            if (Campaign.Current == null ||
                 Hero.MainHero == null ||
                 Clan.PlayerClan == null)
+            {
+                return;
+            }
+
+            NotableSupportConsoleCommands
+                .CleanupStaleSupportAssignments();
+
+            if (!_relationsLocked ||
+                _isApplyingRelations)
             {
                 return;
             }

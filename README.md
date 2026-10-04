@@ -149,6 +149,7 @@ The mod supports:
 - Applying a configurable ceiling to other non-player relations without raising values below the ceiling
 - Using a dynamic default ceiling of `95` when the campaign relation maximum is `100`
 - Persistent relation and support-cost settings with save/load support
+- Immediate cleanup of stale notable support assignments when supported clans are eliminated, with an hourly safety fallback
 - Event-based relation enforcement with a staggered hourly fallback that completes a full sweep roughly every five in-game days
 - Automatic deployment into the Bannerlord module directory during development
 

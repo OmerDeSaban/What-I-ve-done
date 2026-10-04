@@ -115,6 +115,37 @@ namespace NotableSupportCommands
         }
 
         [CommandLineFunctionality.CommandLineArgumentFunction(
+            "cleanup_stale_support",
+            "notable")]
+        public static string CleanupStaleSupport(List<string> args)
+        {
+            if (!TryPrepareCampaignCommand(
+                    out string error))
+            {
+                return error;
+            }
+
+            if (args.Count != 0)
+            {
+                return
+                    "Usage: notable.cleanup_stale_support";
+            }
+
+            int cleared =
+                CleanupStaleSupportAssignments();
+
+            if (cleared == 0)
+            {
+                return
+                    "No stale notable support assignments were found.";
+            }
+
+            return
+                $"Cleared {cleared} stale notable support " +
+                "assignment(s) to eliminated clans.";
+        }
+
+        [CommandLineFunctionality.CommandLineArgumentFunction(
             "relation",
             "notable")]
         public static string Relation(List<string> args)
@@ -1093,8 +1124,19 @@ namespace NotableSupportCommands
                 supporterId =
                     notable.SupporterOf.StringId;
 
+                bool staleSupport =
+                    notable.SupporterOf.IsEliminated;
+
                 Hero supporterLeader =
                     notable.SupporterOf.Leader;
+
+                if (staleSupport)
+                {
+                    canRequestSupport = false;
+                    supportReason =
+                        "Stale support assignment: supported clan " +
+                        "is eliminated; cleanup will clear it";
+                }
 
                 if (supporterLeader != null)
                 {
@@ -1111,36 +1153,39 @@ namespace NotableSupportCommands
                     supporterLeaderRelation =
                         relation.ToString();
 
-                    if (notable.SupporterOf ==
-                        Clan.PlayerClan)
+                    if (!staleSupport)
                     {
-                        canRequestSupport = false;
-                        supportReason =
-                            "Already supports the player's clan";
-                    }
-                    else if (relation ==
-                             maxRelation)
-                    {
-                        canRequestSupport = false;
-                        supportReason =
-                            $"Hard-blocked by relation " +
-                            $"{maxRelation} with the current " +
-                            "supported clan leader";
-                    }
-                    else if (playerRelation <
-                             relation)
-                    {
-                        canRequestSupport = false;
-                        supportReason =
-                            $"Player relation {playerRelation} is " +
-                            $"below current supported clan-leader " +
-                            $"relation {relation}";
-                    }
-                    else if (playerRelation < 50)
-                    {
-                        canRequestSupport = false;
-                        supportReason =
-                            "Player relation is below 50";
+                        if (notable.SupporterOf ==
+                            Clan.PlayerClan)
+                        {
+                            canRequestSupport = false;
+                            supportReason =
+                                "Already supports the player's clan";
+                        }
+                        else if (relation ==
+                                 maxRelation)
+                        {
+                            canRequestSupport = false;
+                            supportReason =
+                                $"Hard-blocked by relation " +
+                                $"{maxRelation} with the current " +
+                                "supported clan leader";
+                        }
+                        else if (playerRelation <
+                                 relation)
+                        {
+                            canRequestSupport = false;
+                            supportReason =
+                                $"Player relation {playerRelation} is " +
+                                $"below current supported clan-leader " +
+                                $"relation {relation}";
+                        }
+                        else if (playerRelation < 50)
+                        {
+                            canRequestSupport = false;
+                            supportReason =
+                                "Player relation is below 50";
+                        }
                     }
                 }
             }
@@ -1233,6 +1278,51 @@ namespace NotableSupportCommands
                 source.IndexOf(
                     value,
                     StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        internal static int CleanupSupportAssignmentsForClan(
+            Clan clan)
+        {
+            if (clan == null)
+            {
+                return 0;
+            }
+
+            int cleared = 0;
+
+            foreach (Hero hero in GetAllLivingHeroes())
+            {
+                if (!hero.IsNotable ||
+                    hero.SupporterOf != clan)
+                {
+                    continue;
+                }
+
+                hero.SupporterOf = null;
+                cleared++;
+            }
+
+            return cleared;
+        }
+
+        internal static int CleanupStaleSupportAssignments()
+        {
+            int cleared = 0;
+
+            foreach (Hero hero in GetAllLivingHeroes())
+            {
+                if (!hero.IsNotable ||
+                    hero.SupporterOf == null ||
+                    !hero.SupporterOf.IsEliminated)
+                {
+                    continue;
+                }
+
+                hero.SupporterOf = null;
+                cleared++;
+            }
+
+            return cleared;
         }
 
         internal static List<Hero>

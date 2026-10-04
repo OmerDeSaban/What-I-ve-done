@@ -176,6 +176,20 @@ Displays detailed support information for one notable, including:
 - current support cost
 - current support-request eligibility reason
 
+### Clean Stale Support Assignments
+
+```text
+notable.cleanup_stale_support
+```
+
+Immediately scans living notables and clears support assignments that still point to an **eliminated clan**.
+
+This repairs a Bannerlord edge case where a notable can remain recorded as supporting a clan after that clan has been destroyed. If the notable had `100` relation with that clan's leader, Bannerlord's normal support-request check can otherwise continue to hard-block the notable from switching to the player's clan.
+
+The cleanup changes only the notable's `SupporterOf` assignment. It does **not** change the notable's stored relation with the former clan leader.
+
+When Bannerlord raises `OnClanDestroyedEvent`, the mod clears supporters of that destroyed clan immediately. A lightweight hourly scan remains as a safety fallback for stale assignments that were created or preserved by another mod or by an unusual campaign state. Both mechanisms are independent of whether relation locking is enabled.
+
 ### Inspect Relation
 
 ```text
@@ -313,6 +327,14 @@ The mod has been tested successfully for:
 
 The relation ceiling was also verified to behave as a ceiling rather than a target: the mod lowers managed ordinary non-player relations that exceed the configured value but does not raise relations that are already below it.
 
+## Eliminated-Clan Support Cleanup
+
+Bannerlord can leave a living notable's `SupporterOf` reference pointing to a clan after that clan has been eliminated. The normal support-request condition still evaluates that stale clan and its leader, so a stored relation of `100` can continue to trigger the hard support-switch block.
+
+Notable Support Commands treats support for an eliminated clan as stale state and clears it automatically. Clan destruction is handled immediately through Bannerlord's `OnClanDestroyedEvent`, with an hourly full-notable safety scan as fallback. The cleanup is intentionally independent of the relation lock and support-cost lock because an eliminated clan should no longer retain active supporters.
+
+The fallback scan is inexpensive: it checks each living notable once per in-game hour and only mutates heroes whose supported clan is already eliminated. The normal path after a clan is destroyed uses a targeted cleanup for that clan immediately.
+
 ## Performance Design
 
 A full relation-policy pass can be expensive in unusually large or heavily modded campaigns because every living notable may need to be checked against many living heroes.
@@ -336,7 +358,7 @@ ceil(living_notables / 120)
 
 and processes that many notables each in-game hour.
 
-Normal `HeroRelationChanged` events are still corrected immediately. The staggered sweep exists only as a safety net for relation changes made by systems or mods that bypass the normal event.
+Normal `HeroRelationChanged` events are still corrected immediately. The staggered sweep exists only as a safety net for relation changes made by systems or mods that bypass the normal event. Separately, clan destruction triggers an immediate targeted cleanup of stale `SupporterOf` assignments, backed by a lightweight hourly safety scan.
 
 In a campaign with roughly `1,200` living notables, the fallback processes about `10` notables per in-game hour and completes one full safety sweep every `120` in-game hours, or roughly five in-game days. This spreads the work across the day instead of doing the entire multi-million-pair scan at once.
 
